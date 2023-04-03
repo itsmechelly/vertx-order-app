@@ -23,8 +23,8 @@ The maven package will be generating a docker-compose YAML that will contain two
 
 # 🚍 Tech Stack
 
-| :---------------------: | :---------------------: | --------------------- |
 | Language & Framework | Java | Maven |
+| :---------------------: | :---------------------: | --------------------- |
 | Asynchronous Tools | Eclipse Vert.x |  |
 | In-Memory Data Grid (IMDG) | Hazelcast |  |
 | Architecture & Design Patterns | Microservice Application | Reactive Asynchronous Application |
