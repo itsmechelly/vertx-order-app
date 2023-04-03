@@ -21,6 +21,12 @@ The Application will be running in cluster mode by using [Hazelcast In-Memory Da
 ### 👉 Docker
 The maven package will be generating a docker-compose YAML that will contain two containers for the 2 verticles.
 
+### 🚍 Tech Stack
+
+|                                                        Language & Framework                                                        | Technology Name | URL                                                                                                     |
+| :---------------------------------------------------------------------------------------------------------------------------: | :-------------: | ------------------------------------------------------------------------------------------------------- |
+|  | Java | Maven |
+
 # Application Architecture
 
 ## RestVerticle module:
