@@ -23,7 +23,7 @@ The maven package will be generating a docker-compose YAML that will contain two
 
 # 🚍 Tech Stack
 
-| Technology Type | 1st | snd | 3rd |
+| Technology Type | 1st | 2nd | 3rd |
 | :---------------------: | :---------------------: | --------------------- | --------------------- |
 | Language & Framework | Java | Maven |  |
 | Asynchronous Tools | Eclipse Vert.x |  |  |
