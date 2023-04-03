@@ -29,7 +29,7 @@ The maven package will be generating a docker-compose YAML that will contain two
 | Asynchronous Tools | Eclipse Vert.x |  |  |
 | In-Memory Data Grid (IMDG) | Hazelcast |  |  |
 | Architecture & Design Patterns | Microservice Application | Reactive Asynchronous Application |  |
-| Client-Side UI | Bootstrap 5 | HTML | CSS |
+| Client-Side UI | HTML | CSS | Bootstrap 5 |
 | Formats for parsing and using data| Json Object Format |  |  |
 
 # Application Architecture
