@@ -72,6 +72,7 @@ This method used in other methods exist in this java class, I added it for clean
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `context` | `RoutingContext` | **Required**. The user context |
+
 ![image](https://user-images.githubusercontent.com/60425986/229527473-11857d22-231e-4779-8919-4d91a58970a6.png)
 #### POST: loginHandler(RoutingContext context)
 ```http
