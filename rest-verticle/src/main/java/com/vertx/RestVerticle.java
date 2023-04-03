@@ -36,6 +36,10 @@ public class RestVerticle extends AbstractVerticle {
     public static final Integer HTTP_STATUS_UNAUTHORIZED = 401;
     public static final Integer HTTP_STATUS_INTERNAL_SERVER_ERROR = 500;
 
+    /**
+     * This method starts an HTTP server:
+     * The method create a Vert.x  HTTP server and then handle every request using the router generated from the createRouter() method (listening to port 8080).
+     */
     @Override
     public void start(Promise<Void> startPromise) {
         log.info("restVerticle.start: going to startPromise");
@@ -52,6 +56,11 @@ public class RestVerticle extends AbstractVerticle {
                 });
     }
 
+    /**
+     * This method creates a Vert.x Web Router (the object used to route HTTP requests to specific request handlers).
+     *
+     * @return Vert.x Web Router
+     */
     private Router createRouter() {
         log.info("restVerticle.createRouter: going to create all routes handlers");
         final Router router = Router.router(vertx);
@@ -66,13 +75,10 @@ public class RestVerticle extends AbstractVerticle {
         return router;
     }
 
-    private void greetingHandler(RoutingContext context) {
-        log.info("restVerticle.greetingHandler: request pass with status " + HTTP_STATUS_OKAY);
-        context.response()
-                .putHeader("content-type", "text/plain")
-                .end("Welcome to " + REST_VERTICAL_SERVICE + " let's have some fun!");
-    }
-
+    /**
+     * POST: loginHandler(RoutingContext context) – this method will use the RoutingContext interface to get the username and password from the user, and check if the user can be logged in (username and password will be saved in local JSON file).
+     * In the background the module should open a session for each user that logged in.
+     */
     private void loginHandler(RoutingContext context) {
         log.info("restVerticle.loginHandler: going to login for session= " + context.session());
         JsonObject jsonFromContext = context.getBodyAsJson();
@@ -106,17 +112,9 @@ public class RestVerticle extends AbstractVerticle {
         });
     }
 
-    private void contextResponse(RoutingContext context, String errorValue, String loginValue, Integer httpStatus) {
-        JsonObject jsonResult = new JsonObject();
-        jsonResult.put("error", errorValue);
-        jsonResult.put("login", loginValue);
-
-        context.response()
-                .putHeader("content-type", "application/json")
-                .setStatusCode(httpStatus)
-                .end(Json.encodePrettily(jsonResult));
-    }
-
+    /**
+     * Helper method to check if users session is permitted.
+     */
     private void sessionAuth(RoutingContext context) {
         log.info("restVerticle.sessionAuth: going to check authentication for session= " + context.session());
         Session session = context.session();
@@ -128,6 +126,9 @@ public class RestVerticle extends AbstractVerticle {
         }
     }
 
+    /**
+     * This method will be used to log out from the user session, his session will be destroyed.
+     */
     private void logoutHandler(RoutingContext context) {
         log.info("restVerticle.logoutHandler: going to logout, session= " + context.session());
         Session session = context.session();
@@ -136,6 +137,20 @@ public class RestVerticle extends AbstractVerticle {
         contextResponse(context, "false", "true", HTTP_STATUS_OKAY);
     }
 
+    /**
+     * This method greeting the user at the main endpoint.
+     */
+    private void greetingHandler(RoutingContext context) {
+        log.info("restVerticle.greetingHandler: request pass with status " + HTTP_STATUS_OKAY);
+        context.response()
+                .putHeader("content-type", "text/plain")
+                .end("Welcome to " + REST_VERTICAL_SERVICE + " let's have some fun!");
+    }
+
+    /**
+     * This method will add an order to the user.
+     * By using Vert.x Event Bus, the order will be sent to the OrderVerticle module.
+     */
     private void addOrderHandler(RoutingContext context) {
         JsonObject jsonBody = context.getBodyAsJson();
         log.info("restVerticle.addOrderHandler: going to use eventBus, adding data to: orderVerticle.addOrder");
@@ -155,6 +170,10 @@ public class RestVerticle extends AbstractVerticle {
         });
     }
 
+    /**
+     * This method will return all user orders.
+     * The request to get the data will be sent by Vert.x Event Bus to the OrderVerticle module.
+     */
     private void getOrdersHandler(RoutingContext context) {
         log.info("restVerticle.getOrdersHandler: going to use eventBus, requesting data from order-vertical-service: orderVerticle.getOrders");
 
@@ -171,5 +190,20 @@ public class RestVerticle extends AbstractVerticle {
                         .end(handler.cause().getMessage());
             }
         });
+    }
+
+    /**
+     * Helper method to print error values in case one of the endpoints collapse, or get runtime error.
+     * This method used in other methods exist in this java class, I added it for clean code.
+     */
+    private void contextResponse(RoutingContext context, String errorValue, String loginValue, Integer httpStatus) {
+        JsonObject jsonResult = new JsonObject();
+        jsonResult.put("error", errorValue);
+        jsonResult.put("login", loginValue);
+
+        context.response()
+                .putHeader("content-type", "application/json")
+                .setStatusCode(httpStatus)
+                .end(Json.encodePrettily(jsonResult));
     }
 }

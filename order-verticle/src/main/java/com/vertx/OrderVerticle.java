@@ -17,6 +17,10 @@ public class OrderVerticle extends AbstractVerticle {
     public static final String JSON_ORDERS_FILE = "orders.json";
     public static final String ORDER_VERTICAL_SERVICE = "order-verticle-service";
 
+    /**
+     * This method use Vert.x Event Bus to manage requests received from the RestVertical module.
+     * The Event Bus will direct each request to the relevant method.
+     */
     @Override
     public void start(Promise<Void> promise) {
         log.info("orderVerticle.start: going to startPromise from " + ORDER_VERTICAL_SERVICE);
@@ -28,6 +32,12 @@ public class OrderVerticle extends AbstractVerticle {
         promise.complete();
     }
 
+    /**
+     * This method add new orders to the user existing orders.
+     * All the data will be saved in a local JSON file and include:
+     * orderID, orderName and orderDate.
+     * The response will be sent to the OrderVerticle module.
+     */
     private void addOrder(Message<Object> message, String orderId, String orderName, String orderDate) {
         log.info("orderVerticle.addOrder: going to answer eventBus consumer, adding new order to= " + JSON_ORDERS_FILE);
         FileSystem fileSystem = vertx.fileSystem();
@@ -61,6 +71,10 @@ public class OrderVerticle extends AbstractVerticle {
         });
     }
 
+    /**
+     * This method will return all user orders.
+     * The response will be sent to the OrderVerticle module.
+     */
     private void getOrders(Message<Object> message) {
         log.info("orderVerticle.getOrders: going to answer eventBus consumer");
 
@@ -76,6 +90,10 @@ public class OrderVerticle extends AbstractVerticle {
         });
     }
 
+    /**
+     * Helper method to print error values in case one of the endpoints collapse, or get runtime error.
+     * This method used in other methods exist in this java class, I added it for clean code.
+     */
     private void messageResponse(Message<Object> message, String errorValue, String insertValue) {
         JsonObject jsonResult = new JsonObject();
         jsonResult.put("error", errorValue);
