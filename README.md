@@ -1,5 +1,6 @@
 
 # Vert.x Order Application
+![vertx-order-app drawio](https://user-images.githubusercontent.com/60425986/229585752-c683974f-0c4e-4f0f-b805-5d4c1ecefe92.png)
 
 ### 🤔 What is the purpose of this application?
 This Project represents a small Microservice App using Eclipse Vert.x and Hazelcast In-Memory Data Grid.
