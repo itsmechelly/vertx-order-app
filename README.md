@@ -1,5 +1,10 @@
 
 # Vert.x Order Application
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chelly-izraelov/)
+[![Application Preview](https://img.shields.io/badge/my_portfolio-1DA1F2?style=for-the-badge&logo=portgolio&logoColor=white)](http://vertx-order-application.s3-website-eu-west-1.amazonaws.com/
+![image](https://user-images.githubusercontent.com/60425986/230016388-40ba6c33-c62d-4682-a708-e1d1db994000.png))
+
+
 ![vertx-order-app drawio](https://user-images.githubusercontent.com/60425986/229585752-c683974f-0c4e-4f0f-b805-5d4c1ecefe92.png)
 
 ### 🤔 What is the purpose of this application?
