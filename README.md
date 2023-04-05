@@ -26,26 +26,26 @@ The Application will be running in cluster mode by using [Hazelcast In-Memory Da
 The maven package will be generating a docker-compose YAML that will contain two containers for the 2 verticles.
 
 # 🚍 Tech Stack
-Language & Framework: Java | Maven
+<u>Language & Framework:<u/> Java | Maven
 <br/>
-Asynchronous Tools: Eclipse Vert.x
+<u>Asynchronous Tools:<u/> Eclipse Vert.x
 <br/>
-In-Memory Data Grid (IMDG): Hazelcast
+<u>In-Memory Data Grid (IMDG):<u/> Hazelcast
 <br/>
-Architecture & Design Patterns: Microservice Application | Reactive Application
+<u>Architecture & Design Patterns:<u/> Microservice Application | Reactive Application
 <br/>
-Client-Side UI: HTML | CSS | Bootstrap 5
+<u>Client-Side UI:<u/> HTML | CSS | Bootstrap 5
 <br/>
 
 # Application Architecture
 
 ## RestVerticle module:
 🛠 This java module will be a Vert.x verticle and will contain 2 classes:<br/>
-### Main class:
+### <u>Main class:<u/>
 `main(String[] args)` – To run the application in a cluster mode, the main class will use Vert.x implementation of Hazelcast as a cluster manager <br/><br/>
 `getAddress()` – This method will use the NetworkInterface to locate and filter the IP addresses.<br/>
 The relevant IP address will be sent back to the main method.<br/>
-### RestVerticle class:
+### <u>RestVerticle class:<u/>
 🛠 First, we will start by creating HTTP Server and Router:<br/><br/>
 `start(Promise<Void> startPromise)` – This method starts an HTTP server.
 The method create a Vert.x HTTP server and then handle requests using the router generated from the createRouter() method (listening to port 8080).<br/><br/>
@@ -65,11 +65,11 @@ This method used in other methods exist in this java class, I added it for clean
 
 ## OrderVerticle module:
 🛠 This java module will be a vert.x verticle and will contain 2 classes:
-### Main class:
+### <u>Main class:<u/>
 `main(String[] args)` – To run the application in a cluster mode, the main class will use Vert.x implementation of Hazelcast as a cluster manager. This method will generate the hazelcast configuration and set the destination address.<br/><br/>
 `getAddress()` – This method will use the NetworkInterface to locate and filter the IP addresses.<br/>
 The relevant IP address will be sent back to the main method.
-### OrderVerticle class:
+### <u>OrderVerticle class:<u/>
 🛠 First, by using Vert.x Event Bus, we will manage requests that received:<br/><br/>
 `start(Promise<Void> promise)` – This method use Verte.x Event Bus to manage requests received from the RestVertical module. The Event Bus will direct each request to the relevant method.<br/><br/>
 `addOrder(Message<Object> message, String orderId, String orderName, String orderDate)` – This method add new orders to the user existing orders. All the data will be saved in a local JSON file and include: orderID, orderName and orderDate. The response will be sent to the OrderVerticle module.<br/><br/>
