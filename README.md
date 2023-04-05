@@ -1,7 +1,7 @@
 
 # Vert.x Order Application
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chelly-izraelov/)
-[![Application Preview](https://img.shields.io/badge/my_portfolio-1DA1F2?style=for-the-badge&logo=portgolio&logoColor=white)](http://vertx-order-application.s3-website-eu-west-1.amazonaws.com/)
+<!-- [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chelly-izraelov/)
+[![Application Preview](https://img.shields.io/badge/my_portfolio-1DA1F2?style=for-the-badge&logo=portgolio&logoColor=white)](http://vertx-order-application.s3-website-eu-west-1.amazonaws.com/) -->
 
 
 ![vertx-order-app drawio](https://user-images.githubusercontent.com/60425986/229585752-c683974f-0c4e-4f0f-b805-5d4c1ecefe92.png)
@@ -26,15 +26,11 @@ The Application will be running in cluster mode by using [Hazelcast In-Memory Da
 The maven package will be generating a docker-compose YAML that will contain two containers for the 2 verticles.
 
 # 🚍 Tech Stack
-
-| Technology Type | 1st | 2nd | 3rd |
-| :---------------------: | :---------------------: | --------------------- | --------------------- |
-| Language & Framework | Java | Maven |  |
-| Asynchronous Tools | Eclipse Vert.x |  |  |
-| In-Memory Data Grid (IMDG) | Hazelcast |  |  |
-| Architecture & Design Patterns | Microservice Application | Reactive Application |  |
-| Client-Side UI | HTML | Bootstrap 5 | CSS |
-| Formats for parsing and using data| Json Object Format |  |  |
+Language & Framework: Java | Maven
+Asynchronous Tools: Eclipse Vert.x
+In-Memory Data Grid (IMDG): Hazelcast
+Architecture & Design Patterns: Microservice Application | Reactive Application
+Client-Side UI: HTML | CSS | Bootstrap 5
 
 # Application Architecture
 
