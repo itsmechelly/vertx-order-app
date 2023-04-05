@@ -27,10 +27,15 @@ The maven package will be generating a docker-compose YAML that will contain two
 
 # 🚍 Tech Stack
 Language & Framework: Java | Maven
+<br/>
 Asynchronous Tools: Eclipse Vert.x
+<br/>
 In-Memory Data Grid (IMDG): Hazelcast
+<br/>
 Architecture & Design Patterns: Microservice Application | Reactive Application
+<br/>
 Client-Side UI: HTML | CSS | Bootstrap 5
+<br/>
 
 # Application Architecture
 
