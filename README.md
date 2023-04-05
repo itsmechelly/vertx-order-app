@@ -26,15 +26,15 @@ The Application will be running in cluster mode by using [Hazelcast In-Memory Da
 The maven package will be generating a docker-compose YAML that will contain two containers for the 2 verticles.
 
 # 🚍 Tech Stack
-Language & Framework: <br/> Java | Maven
+Language & Framework: Java, Maven
 <br/>
-Asynchronous Tools: <br/> Eclipse Vert.x
+Asynchronous Tools: Eclipse Vert.x
 <br/>
-In-Memory Data Grid (IMDG): <br/> Hazelcast
+In-Memory Data Grid (IMDG): Hazelcast
 <br/>
-Architecture & Design Patterns: <br/> Microservice Application | Reactive Application
+Architecture & Design Patterns: Microservice Application, Reactive Application
 <br/>
-Client-Side UI: <br/> HTML | CSS | Bootstrap 5
+Client-Side UI: HTML, CSS, Bootstrap 5
 <br/>
 
 # Application Architecture
