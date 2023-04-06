@@ -22,7 +22,7 @@ The Application will be running in cluster mode by using [Hazelcast In-Memory Da
 ### 👉 Docker
 The maven package will be generating a docker-compose YAML that will contain two containers for the 2 verticles.
 
-# 🚍 Tech Stack
+# 🛠 Tech Stack
 Language & Framework: Java, Maven
 <br/>
 Asynchronous Tools: Eclipse Vert.x
