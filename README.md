@@ -1,5 +1,6 @@
 
 # Vert.x Order Application
+To view the preview page [please CLICK HERE](http://vertx-order-application.s3-website-eu-west-1.amazonaws.com/).<br/>
 
 ![vertx-order-app drawio](https://user-images.githubusercontent.com/60425986/229585752-c683974f-0c4e-4f0f-b805-5d4c1ecefe92.png)
 
